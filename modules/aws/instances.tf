@@ -108,7 +108,7 @@ resource "aws_security_group_rule" "k8s_cp_sg_self_ingress" {
   from_port         = 0
   to_port           = 0
   protocol          = "-1"
-  cidr_blocks       = [aws_vpc.k8s_vpc.cidr_block]
+  cidr_blocks       = ["0.0.0.0/0"]
   security_group_id = aws_security_group.k8s_cp_sg.id
 }
 
@@ -123,7 +123,7 @@ resource "aws_security_group_rule" "k8s_cp_ingress" {
 }
 
 resource "aws_iam_policy" "k8s_master_aws_iam_policy" {
-  name        = "k8s-master-aws-iam-policy"
+  name        = "k8s-master-aws-iam-policy-${random_string.random_append.result}"
   path        = "/"
   description = "K8S Master AWS IAM Policy"
 
@@ -367,7 +367,7 @@ resource "aws_security_group_rule" "k8s_agent_sg_self_ingress" {
   from_port         = 0
   to_port           = 0
   protocol          = "-1"
-  cidr_blocks       = [aws_vpc.k8s_vpc.cidr_block]
+  cidr_blocks       = ["0.0.0.0/0"]
   security_group_id = aws_security_group.k8s_agent_sg.id
 }
 
@@ -398,7 +398,7 @@ EOF
 }
 
 resource "aws_iam_policy" "k8s_agent_aws_iam_policy" {
-  name        = "k8s-agent-aws-iam-policy"
+  name        = "k8s-agent-aws-iam-policy-${random_string.random_append.result}"
   path        = "/"
   description = "K8S Master IAM AWS Policy"
 

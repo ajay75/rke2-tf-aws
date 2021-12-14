@@ -17,7 +17,7 @@ systemctl start rke2-server
 sleep 5
 
 cp /etc/rancher/rke2/rke2.yaml /tmp/rke2.yaml
-sed -i -e "s/127.0.0.1/${cp_lb_host}/g"/rke2.yaml
+sed -i -e "s/127.0.0.1/${cp_lb_host}/g" /tmp/rke2.yaml
 
 
 
