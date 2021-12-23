@@ -270,8 +270,6 @@ resource "aws_launch_template" "k8s_master_launch_template" {
     enabled = true
   }
 
-  user_data = base64encode(data.template_file.server_userdata.rendered)
-
   # vpc_security_group_ids = [aws_security_group.k8s_cp_sg.id]
 
   tag_specifications {
@@ -286,7 +284,7 @@ resource "aws_launch_template" "k8s_master_launch_template" {
   }
 
   key_name = "${var.tfuser}-keypair"
-  # user_data = base64encode(data.template_file.server_userdata.rendered) 
+  user_data = base64encode(data.template_file.server_userdata.rendered) 
 }
 
 resource "aws_autoscaling_group" "k8s_master_asg" {
