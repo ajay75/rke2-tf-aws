@@ -1,7 +1,7 @@
 variable "tfuser" {
   description = "Adds your name to the resources"
   type        = string
-  default     = "andyg"
+  default     = "team"
 }
 
 variable "cluster_name" {
@@ -11,13 +11,13 @@ variable "cluster_name" {
 
 variable "region" {
   type    = string
-  default = "us-gov-west-1"
+  default = "us-gov-east-1"
 }
 
 variable "os" {
   type        = string
-  description = "AWS AMI OS"
-  default     = "ubuntu20"
+  description = "centOS7.9"
+  default     = "centos7"
 }
 
 // VPC CIDR
@@ -80,46 +80,12 @@ variable "amis" {
     user = string
   })))
   default = {
-    "us-east-1" = {
-      "ubuntu20" = {
-        ami  = "ami-0ac80df6eff0e70b5"
-        user = "ubuntu"
-      }
-    }
-    "us-gov-west-1" = {
-      "rhel8" = {
-        ami  = "ami-0ac4e06a69870e5be"
-        user = "ec2-user"
-      }
-      "rhel7" = {
-        ami  = "ami-e9d5ec88"
-        user = "ec2-user"
-      }
-      "sles15sp2" = {
-        ami  = "ami-04e3d865"
-        user = "ec2-user"
-      }
-      "ubuntu20" = {
-        ami  = "ami-84556de5"
-        user = "ubuntu"
-      }
-      "ubuntu18" = {
-        ami  = "ami-bce9d3dd"
-        user = "ubuntu"
-      }
-      "centos8" = {
-        ami  = "ami-967158f7"
-        user = "centos"
-      }
+    "us-gov-east-1" = {
       "centos7" = {
-        ami  = "ami-bbba86da"
+        ami  = "ami-0192d580722c594cc"
         user = "centos"
       }
-      "rocky8" = {
-        ami  = "ami-06370d1e5ddbf1f76"
-        user = "ec2-user"
-      }
-    }
+    }   
   }
 }
 

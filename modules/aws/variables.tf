@@ -69,8 +69,8 @@ variable "amis" {
 
 variable "os" {
   type        = string
-  description = "AWS AMI OS"
-  default     = "ubuntu20"
+  description = "CentOS 7.9"
+  default     = "centos7"
 }
 
 variable "is_public" {
